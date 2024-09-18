@@ -178,38 +178,6 @@ private fun ColorSample(modifier: Modifier = Modifier) {
             )
         }
 
-        // Tertiary
-        Column(
-            modifier = Modifier
-                .padding(4.dp)
-                .border(width = 1.dp, color = Color.Gray)
-        ) {
-            Text(
-                text = "tertiary",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = MaterialTheme.colorScheme.tertiary)
-            )
-            Text(
-                text = "onTertiary",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = MaterialTheme.colorScheme.onTertiary)
-            )
-            Text(
-                text = "tertiaryContainer",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = MaterialTheme.colorScheme.tertiaryContainer)
-            )
-            Text(
-                text = "onTertiaryContainer",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = MaterialTheme.colorScheme.onTertiaryContainer)
-            )
-        }
-
         // Background
         Column(
             modifier = Modifier
