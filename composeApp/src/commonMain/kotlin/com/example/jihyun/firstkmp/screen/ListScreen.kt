@@ -2,7 +2,9 @@ package com.example.jihyun.firstkmp.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -83,13 +85,14 @@ fun CardItem(
             containerColor = MaterialTheme.colorScheme.surface
         ),
         modifier = modifier
+            .aspectRatio(1f)
+            .fillMaxWidth()
     ) {
         // 画像
         Image(
             painter = painterResource(Res.drawable.compose_multiplatform),
             contentDescription = "item $item",
             modifier = Modifier
-                .fillMaxSize()
         )
     }
 }
