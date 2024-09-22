@@ -23,16 +23,22 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.jihyun.firstkmp.router.ListRoute
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
  * ログイン画面
  *
  * @param modifier 装飾
+ * @param navController 画面操作
  */
 @Preview
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    navController: NavController
+) {
     Surface(
         modifier = modifier
             .fillMaxSize()
@@ -98,7 +104,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             // ログインボタン
             Button(
                 shape = MaterialTheme.shapes.extraSmall,
-                onClick = {},
+                onClick = { navController.navigate(ListRoute) },
                 modifier = Modifier
                     .defaultMinSize(
                         minWidth = 280.dp,

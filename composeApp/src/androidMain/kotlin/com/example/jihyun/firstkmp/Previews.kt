@@ -2,6 +2,7 @@ package com.example.jihyun.firstkmp
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.jihyun.firstkmp.screen.DetailScreen
 import com.example.jihyun.firstkmp.screen.ListScreen
 import com.example.jihyun.firstkmp.screen.LoginScreen
@@ -14,7 +15,7 @@ import com.example.jihyun.firstkmp.theme.FirstKMPTheme
 @Composable
 fun LoginScreen_Preview() {
     FirstKMPTheme {
-        LoginScreen()
+        LoginScreen(navController = rememberNavController())
     }
 }
 
@@ -25,7 +26,7 @@ fun LoginScreen_Preview() {
 @Composable
 fun ListScreen_Preview() {
     FirstKMPTheme {
-        ListScreen()
+        ListScreen(navController = rememberNavController())
     }
 }
 
@@ -36,6 +37,6 @@ fun ListScreen_Preview() {
 @Composable
 fun DetailScreen_Preview() {
     FirstKMPTheme {
-        DetailScreen()
+        DetailScreen(navController = rememberNavController())
     }
 }

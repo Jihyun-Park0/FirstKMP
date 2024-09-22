@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import firstkmp.composeapp.generated.resources.Res
 import firstkmp.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
@@ -35,12 +36,14 @@ import org.jetbrains.compose.resources.painterResource
  * 詳細画面
  *
  * @param modifier 装飾
- * @param id 識別式
+ * @param navController 画面操作
+ * @param id 識別子
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
     modifier: Modifier = Modifier,
+    navController: NavController,
     id: Int = 1
 ) {
     Scaffold(
@@ -49,7 +52,7 @@ fun DetailScreen(
             CenterAlignedTopAppBar(
                 navigationIcon = {
                     // 戻るボタン
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "",
