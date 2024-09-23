@@ -1,6 +1,5 @@
 package com.example.jihyun.firstkmp.screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,25 +25,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import firstkmp.composeapp.generated.resources.Res
-import firstkmp.composeapp.generated.resources.compose_multiplatform
-import org.jetbrains.compose.resources.painterResource
+import coil3.compose.AsyncImage
+import com.example.jihyun.firstkmp.repository.BirdImage
 
 /**
  * 詳細画面
  *
  * @param modifier 装飾
  * @param navController 画面操作
- * @param id 識別子
+ * @param birdImage 鳥の画像
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    id: Int = 1
+    birdImage: BirdImage = BirdImage("", "", "")
 ) {
     Scaffold(
         topBar = {
@@ -91,11 +90,12 @@ fun DetailScreen(
                         .aspectRatio(1f)
                         .fillMaxWidth()
                 ) {
-                    Image(
-                        painter = painterResource(Res.drawable.compose_multiplatform),
-                        contentDescription = "item $id",
-                        modifier = Modifier
-                            .fillMaxSize()
+                    AsyncImage(
+                        model = "https://sebi.io/demo-image-api/${birdImage.path}",
+                        contentDescription = "",
+                        contentScale = ContentScale.Crop,
+                        modifier = modifier
+                            .fillMaxWidth()
                     )
                 }
             }
@@ -112,11 +112,11 @@ fun DetailScreen(
                         .fillMaxWidth()
                         .padding(16.dp)
                 ) {
-                    DetailListItem(title = "ID", description = id.toString())
+                    DetailListItem(title = "Category", description = birdImage.category)
                     HorizontalDivider()
-                    DetailListItem(title = "title1", description = "description1")
+                    DetailListItem(title = "Path", description = birdImage.path)
                     HorizontalDivider()
-                    DetailListItem(title = "title2", description = "description2")
+                    DetailListItem(title = "Author", description = birdImage.author)
                 }
             }
         }
