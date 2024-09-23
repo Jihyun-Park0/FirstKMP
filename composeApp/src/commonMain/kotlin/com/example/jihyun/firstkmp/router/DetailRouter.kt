@@ -11,8 +11,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.example.jihyun.firstkmp.repository.BirdImage
 import com.example.jihyun.firstkmp.screen.DetailScreen
-import kotlinx.serialization.Serializable
 
 /**
  * 詳細 Router
@@ -20,7 +20,7 @@ import kotlinx.serialization.Serializable
  * @param navController 画面操作
  */
 fun NavGraphBuilder.detailRouter(navController: NavHostController) {
-    composable<DetailRoute>(
+    composable<BirdImage>(
         enterTransition = {
             fadeIn(
                 animationSpec = tween(durationMillis = 300, easing = LinearEasing)
@@ -38,13 +38,7 @@ fun NavGraphBuilder.detailRouter(navController: NavHostController) {
             )
         }
     ) { entry ->
-        val detail = entry.toRoute<DetailRoute>()
-        DetailScreen(navController = navController, id = detail.id)
+        val birdImage = entry.toRoute<BirdImage>()
+        DetailScreen(navController = navController, birdImage = birdImage)
     }
 }
-
-@Serializable
-data class DetailRoute(
-    /** 識別子 */
-    val id: Int
-)

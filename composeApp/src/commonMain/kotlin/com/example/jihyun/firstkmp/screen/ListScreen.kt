@@ -1,6 +1,5 @@
 package com.example.jihyun.firstkmp.screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,12 +17,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.jihyun.firstkmp.router.DetailRoute
-import firstkmp.composeapp.generated.resources.Res
-import firstkmp.composeapp.generated.resources.compose_multiplatform
-import org.jetbrains.compose.resources.painterResource
+import coil3.compose.AsyncImage
+import com.example.jihyun.firstkmp.repository.BirdImage
 
 /**
  * 一覧画面
@@ -37,7 +35,7 @@ import org.jetbrains.compose.resources.painterResource
 fun ListScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    list: List<Int> = List(10) { it }
+    list: List<BirdImage> = List(10) { BirdImage(category = "", path = "", author = "") }
 ) {
     Scaffold(
         topBar = {
@@ -69,7 +67,7 @@ fun ListScreen(
             items(list) {
                 CardItem(
                     item = it,
-                    onClick = { navController.navigate(DetailRoute(it)) }
+                    onClick = { navController.navigate(it) }
                 )
             }
         }
@@ -87,7 +85,7 @@ fun ListScreen(
 @Composable
 fun CardItem(
     modifier: Modifier = Modifier,
-    item: Int,
+    item: BirdImage,
     onClick: () -> Unit = {}
 ) {
     OutlinedCard(
@@ -100,10 +98,12 @@ fun CardItem(
             .fillMaxWidth()
     ) {
         // 画像
-        Image(
-            painter = painterResource(Res.drawable.compose_multiplatform),
-            contentDescription = "item $item",
+        AsyncImage(
+            model = "https://sebi.io/demo-image-api/${item.path}",
+            contentDescription = "",
+            contentScale = ContentScale.Crop,
             modifier = Modifier
+                .fillMaxSize()
         )
     }
 }
