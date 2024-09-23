@@ -88,6 +88,10 @@ kotlin {
             implementation(libs.coil.network.ktor)
 
         }
+        iosMain.dependencies {
+            // Ktor
+            implementation(libs.ktor.client.darwin)
+        }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
