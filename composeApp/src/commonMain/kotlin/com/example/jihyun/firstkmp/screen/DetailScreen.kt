@@ -53,6 +53,7 @@ fun DetailScreen(
             // ヘッダー
             CenterAlignedTopAppBar(
                 navigationIcon = {
+                    // TODO ①: 一覧画面に戻る
                     // 戻るボタン
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
