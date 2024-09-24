@@ -68,7 +68,7 @@ fun ListScreen(
                 CardItem(
                     item = it,
                     // TODO ①: 詳細画面に移動
-                    onClick = { navController.navigate(it) }
+                    onClick = {}
                 )
             }
         }
