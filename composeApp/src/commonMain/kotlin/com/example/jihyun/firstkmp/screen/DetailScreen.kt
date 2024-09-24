@@ -45,6 +45,9 @@ fun DetailScreen(
     navController: NavController,
     birdImage: BirdImage = BirdImage("", "", "")
 ) {
+    ComposableLifecycle { _, event ->
+        println("event = $event")
+    }
     Scaffold(
         topBar = {
             // ヘッダー
