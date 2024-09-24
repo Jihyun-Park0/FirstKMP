@@ -74,12 +74,6 @@ fun LoginScreen(
             ) {
                 // TODO ③: Res.drawable.compose_multiplatform の画像追加（サイズは 40.dp）
                 // 画像
-                Image(
-                    painter = painterResource(Res.drawable.compose_multiplatform),
-                    contentDescription = "compose",
-                    modifier = Modifier
-                        .size(40.dp)
-                )
 
                 // タイトル
                 Text(
@@ -147,7 +141,7 @@ fun LoginScreen(
                             saveString("password", "")
                         }
                         // TODO ①: 一覧画面に移動
-                        navController.navigate(ListRoute)
+
                     }
                 },
                 modifier = Modifier

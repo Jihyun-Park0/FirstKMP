@@ -8,10 +8,7 @@ import kotlinx.serialization.Serializable
 class BirdRepository(private val httpClient: HttpClient) {
 
     // TODO ②: https://sebi.io/demo-image-api/pictures.json を呼び出して一覧取得
-    suspend fun getImages(): List<BirdImage> =
-        httpClient
-            .get("https://sebi.io/demo-image-api/pictures.json")
-            .body<List<BirdImage>>()
+    suspend fun getImages(): List<BirdImage> = listOf()
 
     fun close() {
         httpClient.close()
