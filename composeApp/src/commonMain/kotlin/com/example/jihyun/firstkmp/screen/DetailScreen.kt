@@ -45,11 +45,15 @@ fun DetailScreen(
     navController: NavController,
     birdImage: BirdImage = BirdImage("", "", "")
 ) {
+    ComposableLifecycle { _, event ->
+        println("event = $event")
+    }
     Scaffold(
         topBar = {
             // ヘッダー
             CenterAlignedTopAppBar(
                 navigationIcon = {
+                    // TODO ①: 一覧画面に戻る
                     // 戻るボタン
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
